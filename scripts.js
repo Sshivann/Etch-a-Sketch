@@ -46,7 +46,6 @@ gridItems = document.querySelectorAll('.grid-item');
 
 let ink = '#000000';
 
-//pen color picker
 const colorPicker = document.querySelector('#color-select');
 colorPicker.addEventListener('input', (e) => {
   ink = e.target.value;
@@ -213,7 +212,6 @@ function randomColor() {
   return `hsl(${Math.random() * 360}, 100%, 50%)`;
 }
 
-// slider
 
 let progressBar = document.getElementById('progress-bar');
 
@@ -244,8 +242,6 @@ function reInit() {
   listen();
 }
 
-
-
 function rangeSliderValue(value) {
   let gridLabels = document.querySelectorAll('#range-value');
   for (let i = 0; i < gridLabels.length; i++) {
@@ -263,7 +259,6 @@ function deleteGrid() {
   }
 }
 
-//fade grid
 function fadeGrid(item) {
   if (item.style.backgroundColor == '' || item.style.backgroundColor == 'transperent') {
     item.style.backgroundColor == bgColor;
@@ -336,8 +331,6 @@ function toMatrix(arr, width) {
     return (index % width == 0 ? rows.push([key]) : rows[rows.length - 1].push(key)) && rows;
   }, []);
 }
-
-//helper funtion to grab adjacent cells of a 2d grid
 //function getAdjacent2D(x, y) {
 // let xAbove = [x - 1, y];
 
@@ -350,8 +343,6 @@ function toMatrix(arr, width) {
 // return [xAbove, xBellow, xLeft, xRight]
 //}
 
-//helper function to grab adjacent cells of a 2d grid stored as a 1d array
-// only return cells that do not cross over the edge of the grid
 
 /*
 function getAdjacent1D(x, gridX, gridY) {
@@ -392,10 +383,10 @@ function hexToRGB(hex) {
 
 function findNeighbors(matrix, x, y, oldColor, newColor) {
   const possibleNeighbors = [
-    { cell: matrix?.[x]?.[y - 1], x: x, y: y - 1 }, // west
-    { cell: matrix?.[x]?.[y + 1], x: x, y: y + 1 }, // east
-    { cell: matrix?.[x - 1]?.[y], x: x - 1, y: y }, // north
-    { cell: matrix?.[x + 1]?.[y], x: x + 1, y: y }, // south
+    { cell: matrix?.[x]?.[y - 1], x: x, y: y - 1 }, 
+    { cell: matrix?.[x]?.[y + 1], x: x, y: y + 1 }, 
+    { cell: matrix?.[x - 1]?.[y], x: x - 1, y: y }, 
+    { cell: matrix?.[x + 1]?.[y], x: x + 1, y: y }, 
   ];
 
   const neighbors = [];
@@ -434,10 +425,10 @@ function floodFill(image, x, y, oldColor, newColor) {
   }
 }
 
-//colorfill
+
 function colorFill(e) {
   if (fill) {
-    //get index of the clicked grid cell
+  
     const ogIndex = Array.from(e.target.parentElement.children).indexOf(
       e.target
     );
@@ -466,7 +457,6 @@ function colorFill(e) {
   }
 }
 
-// draw on the grid when clicked
 function drawClick(e) {
  
   if (!grab && !fill) {
